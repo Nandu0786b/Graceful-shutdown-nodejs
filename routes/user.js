@@ -3,7 +3,7 @@ const router=express.Router();
 //controller
 import * as authrouter from "../controller/auth.js";
 
-router.get('/settime',authrouter.profile)
+router.get('/set-time',authrouter.profile)
 
 
 
