@@ -2,7 +2,8 @@ import express from "express";
 import morgan  from "morgan";
 import dotenv from "dotenv";
 import cors from "cors";
-import connectDB from "./Db.js/mongoc.js";
+import connectDB from "./db/mongo.js";
+import userRoutes from "./routes/user.js"
 
 const app=express();
 dotenv.config();
@@ -15,6 +16,9 @@ app.use(express.json()); //To handle json object
 app.disable('x-powered-by');
 app.use(cors());
 
+
+//
+app.use('/api/time',userRoutes)
 
 //Connect data base and start the server
 connectDB(MONGO_URL).then(()=>{
